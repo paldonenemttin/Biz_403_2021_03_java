@@ -47,7 +47,7 @@ public class WordServiceImplV2 extends WordServiceImplV1 {
 		while (true) {
 			
 			score.set힌트보기(0);
-			score.set재도전(2);
+			score.set재도전(3);
 			
 			// 게임용 단어 만들기
 			int nWordIndex = rnd.nextInt(nWordCount);
@@ -68,7 +68,9 @@ public class WordServiceImplV2 extends WordServiceImplV1 {
 					return;
 				} else if (strInput.equals("1")) {
 					/*
-					 * 반복문{반복문{}}처럼 반복문이 겹쳐 있을때 안쪽의 반복문에서 break를 실행하면 한계단씩 반복문이 해제 된다
+					 * 반복문{반복문{}}처럼 반복문이 겹쳐 있을때
+					 *  안쪽의 반복문에서 break를 실행하면
+					 *   한계단씩 반복문이 해제 된다
 					 */
 					break;
 				} else if (strInput.equals("2")) {
@@ -97,6 +99,7 @@ public class WordServiceImplV2 extends WordServiceImplV1 {
 		System.out.println("*".repeat(50));
 
 		score.set힌트보기(score.get힌트보기() + 1);
+		this.viewScore();
 	}
 
 	
@@ -105,12 +108,13 @@ public class WordServiceImplV2 extends WordServiceImplV1 {
 		// TODO 단어 채점
 		String strEng = wordVO.getEnglish();
 		if (strEng.equalsIgnoreCase(input)) {
-			score.set맞은갯수(score.get맞은갯수() + 1);
+			score.set맞은갯수(score.get맞은갯수() + 1 );
 			System.out.println("올 ㅋ");
 		} else {
-			score.set틀린갯수(score.get틀린갯수());
-			score.set재도전(score.get재도전());
+			score.set틀린갯수(score.get틀린갯수() + 1 );
+			score.set재도전(score.get재도전() - 1 );
 		}
+		this.viewScore();
 	}
 
 	
@@ -125,6 +129,9 @@ public class WordServiceImplV2 extends WordServiceImplV1 {
 		System.out.printf("맞은갯수 : %d\n", score.get맞은갯수());
 		System.out.printf("틀린갯수 : %d\n", score.get틀린갯수());
 		System.out.printf("포인트 : %d\n", score.get포인트());
+		System.out.printf("힌트확인 : %d\n" , score.get힌트보기());
+		System.out.printf("재도전 : %d\n", score.재도전());
+		System.out.println("=".repeat(50));
 	}
 
 	protected void saveScore() {
