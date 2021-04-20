@@ -11,17 +11,18 @@ import java.util.Random;
 import java.util.Scanner;
 
 import com.callor.word.domain.WordVO;
+import com.callor.word.service.WordService;
 import com.paldonenemttin.standard.InputService;
 import com.paldonenemttin.standard.MenuService;
 import com.paldonenemttin.standard.impl.MenuServiceImplV1;
 import com.paldonenemttin.standard.impl.inputServiceImplV1;
 
-public class WordServiceImplV1 {
+public class WordServiceImplV1 implements WordService {
 
 	protected InputService inService;
 	protected MenuService mService;
 	protected Scanner scan;
-	protected List<WordVO> wordList;//
+	protected List<WordVO> wordList;// word들의 리스트
 	protected int nWordCount; // wordList의 개수를 담을 변수
 	protected Random rnd;
 
@@ -41,6 +42,7 @@ public class WordServiceImplV1 {
 		// mService = new MenuServiceImplV1(;, null);
 		scan = new Scanner(System.in);
 		rnd = new Random();
+		
 		wordList = new ArrayList<WordVO>();
 		this.loadWords(wordFile);
 
@@ -51,7 +53,9 @@ public class WordServiceImplV1 {
 	}
 
 	/*
-	 * 게임이 시작되면 wordList에서 임의 단어 1개를 추출하고 단어의 영문 스펠을 나누어 무작위로 섞고 섞인 단어를 보여주고 맞추기
+	 * 게임이 시작되면 wordList에서 임의 단어 1개를 추출하고
+	 *  단어의 영문 스펠을 나누어 무작위로 섞고
+	 *   섞인 단어를 보여주고 맞추기
 	 */
 	public void startGame() {
 		/*
@@ -79,12 +83,11 @@ public class WordServiceImplV1 {
 		 *  첫번째 코드는 결합도가 높은 코드
 		 *  두번째 코드는 결합도는 낮추고 응집도를 높인 코드가 된다
 		 *  
-		 *  SW공학에서 좋은 코드라고 하는 예이다ㅜ 
+		 *  SW공학에서 좋은 코드라고 하는 예이다
 		 */
 		String viewWord[] = this.getSuffleWord();
 		this.inputWord(viewWord);
 		
-		this.inputWord(this.getSuffleWord());
 	}
 	
 	// startGame을 getSuffleWord 로 변경
@@ -103,7 +106,7 @@ public class WordServiceImplV1 {
 		// wordList의 갯수(size)를 담을 변수를
 		// 두개의 method에서 사용을 하고 있다
 		// 이 변수 필드영역으로 보내자
-		int nWordCount = wordList.size();
+		//int nWordCount = wordList.size();
 
 		// 0~(wordList.size() -1)범위의 임의 정수 만들기
 		int nWordIndex = rnd.nextInt(nWordCount);
@@ -116,13 +119,13 @@ public class WordServiceImplV1 {
 		// 영문 단어를 매개변수로 전달하고
 		// 알파벳단위로 분리되고 뒤섞인 단어를 return 받아
 		// 뒤섞어 배열로 만든 후 return
-		String[] suffleEnglish = this.wordsuffle(wordVO.getEnglish());
+		String[] suffleEnglish = this.suffleWord(wordVO.getEnglish());
 		
 		System.out.println(Arrays.toString(suffleEnglish));
 		return suffleEnglish;
 	}
 	
-	private void inputWord(String[] viewWord) {
+	protected String inputWord(String[] viewWord) {
 		
 		System.out.println("=".repeat(50));
 		System.out.println("뤼팡의 영단어 게임 V1");
@@ -131,10 +134,11 @@ public class WordServiceImplV1 {
 		System.out.println("다음 단어를 바르게 나열하여 입력");
 		// suffle된 영단어를 보여주기
 		//this.startGame();
-		System.out.println();
+		System.out.println(Arrays.toString(viewWord));
 		System.out.print(">> ");
 		String strInput = scan.nextLine();
 		
+		return strInput;
 	}
 
 	/*
@@ -142,7 +146,7 @@ public class WordServiceImplV1 {
 	 * 알파벳 단위로 자르고
 	 * 뒤 섞어 배열로 만든 후 return
 	 */
-	private String[] wordsuffle(String strEnglish) {
+	protected String[] suffleWord(String strEnglish) {
 		// TODO Auto-generated method stub
 		
 		// 영문단어를 스펠 다누이로 잘라서 배열로 생성
@@ -168,7 +172,7 @@ public class WordServiceImplV1 {
 		return suffleEnglish;
 	}
 
-	private void loadWords(String wordFile) {
+	protected void loadWords(String wordFile) {
 		// TODO Auto-generated method stub
 		FileReader fileReader = null;
 		BufferedReader buffer = null;
