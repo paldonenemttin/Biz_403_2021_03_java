@@ -130,7 +130,7 @@ public class WordServiceImplV2 extends WordServiceImplV1 {
 		System.out.printf("틀린갯수 : %d\n", score.get틀린갯수());
 		System.out.printf("포인트 : %d\n", score.get포인트());
 		System.out.printf("힌트확인 : %d\n" , score.get힌트보기());
-		System.out.printf("재도전 : %d\n", score.재도전());
+		System.out.printf("재도전 : %d\n", score.get재도전());
 		System.out.println("=".repeat(50));
 	}
 
