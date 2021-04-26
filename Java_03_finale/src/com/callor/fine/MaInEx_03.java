@@ -8,7 +8,7 @@ public class MaInEx_03 {
 		int num2 = 20;
 		
 		AddInt addInt = new AddInt();
-		int sum = addInt.AddInt(num1, num2);
+		int sum = addInt.add(num1, num2);
 		System.out.println(sum);
 	}
 

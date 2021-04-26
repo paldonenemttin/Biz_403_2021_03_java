@@ -7,7 +7,7 @@ public class MainEx_01 {
 	public static void main(String[] args) {
 		
 		int num1 = 0;
-		int num2 =0;
+		int num2 = 0;
 		
 		num1 = 30;
 		num2 = 40;

@@ -2,7 +2,11 @@ package com.callor.fine;
 
 public class AddInt {
 
-	public int AddInt(int num1, int num2) {
+	public int add(int num1, int num2) {
+		
+		int sum = num1 + num2;
+		
+		System.out.println(sum);
 		return 0;
 	}
 
