@@ -7,7 +7,7 @@ public class AddInt {
 		int sum = num1 + num2;
 		
 		System.out.println(sum);
-		return 0;
+		return sum;
 	}
 
 }
