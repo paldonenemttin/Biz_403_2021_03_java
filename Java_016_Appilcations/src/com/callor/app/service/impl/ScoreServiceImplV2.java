@@ -99,8 +99,11 @@ public class ScoreServiceImplV2 implements ScoreService {
 		
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public void saveScore() {
+		
+		ScoreVO vo = new ScoreVO();
 		while(true) {
 			System.out.println("성적리스트 저장");
 			System.out.println("저장할 파일이름을 입력하세요");
@@ -122,7 +125,6 @@ public class ScoreServiceImplV2 implements ScoreService {
 				out = new PrintWriter(filWriter);
 				int nSize = scoreList.size();
 				for(int i =0 ; i < nSize ; i++) {
-					out.print(vo.);
 					
 				}
 			} catch (IOException e) {

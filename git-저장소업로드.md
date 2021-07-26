@@ -1,11 +1,11 @@
 #git repository(저장소)업로드하기
 
-##원격저장소
-*https://github.com/paldonenemttin.프로젝트.git
+## 원격저장소
+* https://github.com/paldonenemttin.프로젝트.git
 * github.com 의 생성한 repository
 
-##local 프로젝트
-*C:/vizworks/javaworls
+## local 프로젝트
+* C:/vizworks/javaworls
 
 
 ##git-hub 저장소 생성
@@ -33,7 +33,7 @@
 
 4. local프로젝트 압축준비
 * 압축금지 파일 설정
-*. touch .gitignore 로 파일 생성
+* . touch .gitignore 로 파일 생성
 * .gitignore 파일을 sublime text로 열어서 압축금지 파일 정보 등록
 
 5. local 프로젝트를 압축하여 local 저장소에 옮길 준비를 하라
@@ -48,13 +48,13 @@
 
 ## 원격저장소와 연결된 프로젝트에 새로운 코드 추가하기
 * git add .
-*git commit -m "Hello_02 추가"
+* git commit -m "Hello_02 추가"
 *
 
 ## 원격저장소 주소를 단축하여 입력하기
 1. 원격저장소 주소를 별명으로 설정하기
-*git remote add origin https://github.com/paldonenemttin/Biz_403_2021_03_Java.git
+* git remote add origin https://github.com/paldonenemttin/Biz_403_2021_03_Java.git
  
-*git push -u origin master
+* git push -u origin master
 
-*git push 
+* git push 

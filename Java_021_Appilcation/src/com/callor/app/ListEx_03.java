@@ -24,7 +24,7 @@ public class ListEx_03 {
 			//scoreVO.setEng(intEng);
 			//scoreVO.setMeth(intMath);
 			
-			ScoreVO scoreVO = new Score
+			ScoreVO scoreVO = new ScoreVO();
 			
 			scoreList.add(scoreVO);
 		}// end for
@@ -32,8 +32,8 @@ public class ListEx_03 {
 		printScore(scoreList);
 		totalAdnAvg(scoreList);
 		printScore(scoreList);
-		
-		sort();
+		sort(scoreList);
+		printScore(scoreList);
 	}
 	
 	public static void totalAdnAvg(List<ScoreVO> scList) {

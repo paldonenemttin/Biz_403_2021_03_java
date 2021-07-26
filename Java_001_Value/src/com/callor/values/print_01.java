@@ -27,7 +27,7 @@ public class print_01 {
 		System.out.print(4);
 		
 		/*
-		 * 한줄에 연속되 결과를 출력한 후
+		 * 한줄에 연속된 결과를 출력한 후
 		 * 다음줄에 다른 결과를 출력하고 싶으면
 		 * println()을 한번 실행해 준다
 		 */
@@ -45,10 +45,11 @@ public class print_01 {
 		 * 출력하는 명령문이다
 		 */
 		
+		
 		System.out.printf("%d + %d = %d"
 				  ,3,4,3+4);
 		
-		System.out.printf("%d x %d = %d" 
+		System.out.printf("%d x %d = %d"
 				           ,3,3, 3 * 3);
 		
 		/*
